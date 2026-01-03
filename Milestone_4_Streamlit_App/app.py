@@ -41,7 +41,7 @@ st.sidebar.info(
     "and diagnosis classification."
 )
 
-image_path = os.path.join(IMAGES_DIR, f"{selected_patient}.png")
+image_path = os.path.join(IMAGES_DIR, f"{selected_patient}.jpg")
 note_path = os.path.join(NOTES_DIR, f"{selected_patient}.json")
 
 if not os.path.exists(note_path):
@@ -75,7 +75,7 @@ with col1:
 
     if os.path.exists(image_path):
         image = Image.open(image_path)
-        st.image(image, use_column_width=True)
+        st.image(image, use_container_width=True)
         st.caption(
             "AI-enhanced medical image generated using Computer Vision "
             "techniques for improved clarity and noise reduction."
