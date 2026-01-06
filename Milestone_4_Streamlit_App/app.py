@@ -87,7 +87,6 @@ st.markdown("""
 ---
 """)
 
-# ------------------ DIRECTORIES ------------------
 NOTES_DIR = "data/notes"
 IMAGES_DIR = "data/images"
 
@@ -98,7 +97,6 @@ if not os.path.exists(NOTES_DIR):
 patient_files = [f for f in os.listdir(NOTES_DIR) if f.endswith(".json")]
 patient_ids = sorted([f.replace(".json", "") for f in patient_files])
 
-# ------------------ SIDEBAR ------------------
 st.sidebar.markdown("## 🏥 Clinical Dashboard")
 st.sidebar.markdown("Select a patient record to review AI-enhanced outputs.")
 
@@ -114,7 +112,6 @@ st.sidebar.info(
     "and diagnosis classification."
 )
 
-# ------------------ DATA LOADING ------------------
 image_path = os.path.join(IMAGES_DIR, f"{selected_patient}.jpg")
 note_path = os.path.join(NOTES_DIR, f"{selected_patient}.json")
 
@@ -137,7 +134,6 @@ if isinstance(icd_code, list):
 if isinstance(icd_code, dict):
     icd_code = icd_code.get("code")
 
-# ------------------ LAYOUT ------------------
 col1, col2 = st.columns([1.3, 1])
 
 with col1:
@@ -227,7 +223,6 @@ with col2:
         unsafe_allow_html=True
     )
 
-# ------------------ FOOTER ------------------
 st.markdown("---")
 st.caption(
     "⚠️ This system is intended to support clinical decision-making and does not replace "
